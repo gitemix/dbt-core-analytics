@@ -1,0 +1,25 @@
+{{ config(
+    materialized='incremental',
+    unique_key='lineitem_key'
+) }}
+
+SELECT
+    {{ generate_lineitem_key() }} AS lineitem_key,
+    l_orderkey AS order_key,
+    l_partkey AS part_key,
+    l_suppkey AS supplier_key,
+    l_linenumber,
+    l_quantity,
+    l_extendedprice,
+    l_discount,
+    l_tax,
+    l_returnflag,
+    l_linestatus,
+    l_shipdate,
+    l_commitdate,
+    l_receiptdate
+FROM {{ source('tpch_source', 'lineitem') }}
+
+{% if is_incremental() %}
+WHERE l_shipdate > (SELECT MAX(l_shipdate) FROM {{ this }})
+{% endif %}
