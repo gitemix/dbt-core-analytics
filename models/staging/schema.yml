@@ -1,48 +1,85 @@
 models:
    - name: stg_tpch_lineitem
+     description: "Lineitem table in staging layer"   
      columns:
        - name: l_quantity
+         description: "Line item Quantity"
          tests:
            - is_positive 
 
        - name: l_extendedprice
+         description: "Line item extended price"
          tests:
            - is_positive      
 
        - name: l_discount
+         description: "Line item discount"
          tests:
             - is_positive 
 
        - name: l_tax
+         description: "Line item tax"
          tests:
             - is_positive       
 
 
 
    - name: stg_tpch_part       
+     description: "Part table in staging layer"
      columns:
        - name: p_retailprice
+         description: "Retail price by part type"       
          tests:
            - is_positive
 
-       - name: psize
+       - name: p_size
+         description: "Part/order size "
          tests: 
            - is_positive
-       
+
+       - name: p_partkey
+         description: "Primary key"
+         tests: 
+           - unique
+           - not_null
 
    - name: stg_tpch_partsupp
+     description: "Part Supplier table in staging layer"
      columns:
        - name: ps_availqty
+         description: "Available inventory"
          tests:
            - is_positive 
 
        - name: ps_supplycost
+         description: "Supply Cost table in staging layer"
          tests:
             - is_positive
-            
+       - name: ps_suppkey
+         description: "Primary Key"       
+         tests:
+            - not_null
+            - unique
 
    - name: stg_tpch_orders
+     description: "Orders table in staging layer"
      columns:
       - name: o_totalprice
+        description: "Total Price per order"
         tests:
               - is_positive 
+      - name: o_orderkey
+        description: "Primary Key"
+        tests:
+            - unique
+            - not_null
+
+
+   - name: stg_tpch_customer
+     description: "Customer table in staging layer"
+     columns:
+       - name: c_custkey
+         description: "Primary Key"
+         tests:
+            - unique
+            - not_null
