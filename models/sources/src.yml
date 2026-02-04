@@ -5,10 +5,18 @@ sources:
     schema: TPCH_SF1
     tables:
       - name: orders
+        description: full load
       - name: lineitem
+        description: incremental load
       - name: customer
+        description: full load
       - name: nation
+        description: full load
       - name: region
+        description: full load
       - name: part
+        description: full load
       - name: partsupp
+        description: full load
       - name: supplier
+        description: full load
