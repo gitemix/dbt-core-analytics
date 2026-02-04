@@ -1,0 +1,48 @@
+models:
+   - name: stg_tpch_lineitem
+     columns:
+       - name: l_quantity
+         tests:
+           - is_positive 
+
+       - name: l_extendedprice
+         tests:
+           - is_positive      
+
+       - name: l_discount
+         tests:
+            - is_positive 
+
+       - name: l_tax
+         tests:
+            - is_positive       
+
+
+
+   - name: stg_tpch_part       
+     columns:
+       - name: p_retailprice
+         tests:
+           - is_positive
+
+       - name: psize
+         tests: 
+           - is_positive
+       
+
+   - name: stg_tpch_partsupp
+     columns:
+       - name: ps_availqty
+         tests:
+           - is_positive 
+
+       - name: ps_supplycost
+         tests:
+            - is_positive
+            
+
+   - name: stg_tpch_orders
+     columns:
+      - name: o_totalprice
+        tests:
+              - is_positive 
