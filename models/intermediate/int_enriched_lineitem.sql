@@ -8,8 +8,8 @@ SELECT
     li.l_shipdate,
     li.quantity,
 
-    li.extendedprice AS gross_amount,
-    li.extendedprice * (1 - li.discount) AS net_amount,
+    li.l_extendedprice AS gross_amount,
+    li.l_extendedprice * (1 - li.discount) AS net_amount,
     li.discount,
     li.tax,
 
