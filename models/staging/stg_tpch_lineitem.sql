@@ -9,7 +9,7 @@ SELECT
     l_partkey AS part_key,
     l_suppkey AS supplier_key,
     l_linenumber,
-    l_quantity,
+    {{to_whole_number('l_quantity')}}AS quantity,
     l_extendedprice,
     l_discount,
     l_tax,
