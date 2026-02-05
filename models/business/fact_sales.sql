@@ -64,7 +64,7 @@ SELECT
     fb.quantity,
     fb.gross_amount,
     fb.net_amount,
-    {{ standard_currency() }},
+    {{ std_currency() }},
     
     -- Audit
     {{ dbt_utils.current_timestamp() }} AS dbt_loaded_at
