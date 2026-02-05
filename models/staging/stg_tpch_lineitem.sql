@@ -5,12 +5,12 @@
 
 SELECT
     --{{ generate_lineitem_key() }} AS lineitem_key,
-    {{dbt_utils.generate_surrogate_key(['l_orderkey','l_linenumber'])}} AS lineitem_key,
+    {{ dbt_utils.generate_surrogate_key(['l_orderkey','l_linenumber']) }} AS lineitem_key,
     l_orderkey AS order_key,
     l_partkey AS part_key,
     l_suppkey AS supplier_key,
     l_linenumber,
-    {{to_whole_number('l_quantity')}}AS quantity,
+    {{ to_whole_number('l_quantity') }}AS quantity,
     l_extendedprice,
     l_discount,
     l_tax,
