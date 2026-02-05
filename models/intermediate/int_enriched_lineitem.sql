@@ -5,7 +5,7 @@ SELECT
     li.order_key,
     li.part_key,
     li.supplier_key,
-    li.shipdate,
+    li.l_shipdate,
     li.quantity,
 
     li.extendedprice AS gross_amount,

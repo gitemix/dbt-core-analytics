@@ -7,8 +7,8 @@ SELECT
     o.order_status,
     o.total_price,
     c.market_segment,
-    n.n_name AS nation_name,
-    r.r_name AS region_name
+    n.nation_name,
+    r.region_name
 FROM {{ ref('stg_tpch_orders') }} o
 JOIN {{ ref('stg_tpch_customer') }} c
   ON o.customer_key = c.customer_key
