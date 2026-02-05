@@ -9,7 +9,7 @@ SELECT
     li.quantity,
 
     li.l_extendedprice AS gross_amount,
-    li.l_extendedprice * (1 - li.discount) AS net_amount,
+    li.l_extendedprice * (1 - li.l_discount) AS net_amount,
     li.l_discount,
     li.l_tax,
 
