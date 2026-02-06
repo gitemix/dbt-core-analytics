@@ -55,7 +55,7 @@ SELECT
     
     -- Dates (as foreign keys to dim_date)
     TO_NUMBER(TO_CHAR(fb.order_date, 'YYYYMMDD')) AS order_date_key,
-    TO_NUMBER(TO_CHAR(fb.shipdate, 'YYYYMMDD')) AS ship_date_key,
+    TO_NUMBER(TO_CHAR(fb.l_shipdate, 'YYYYMMDD')) AS ship_date_key,
     
     -- Metrics
     fb.quantity,
