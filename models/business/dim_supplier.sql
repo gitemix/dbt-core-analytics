@@ -17,7 +17,7 @@ regions AS (
 final AS (
     SELECT
         -- Use your macro to create a unique surrogate key
-        {{ gen_surkey(['s.supplier_key']) }} AS dim_supplier_key,
+        {{ gen_surkey(['supplier_key']) }} AS dim_supplier_key,
         s.supplier_key,
         s.supplier_name,
         s.address,
