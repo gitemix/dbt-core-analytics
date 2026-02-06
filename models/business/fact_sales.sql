@@ -67,6 +67,6 @@ SELECT
     {{ std_currency() }},
     
     -- Audit
-    {{ dbt_utils.current_timestamp() }} AS dbt_loaded_at
+    {{ dbt.current_timestamp() }} AS dbt_loaded_at
 
 FROM fact_base fb

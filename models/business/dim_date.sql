@@ -24,5 +24,5 @@ SELECT
     EXTRACT(YEAR FROM date) AS year,
     EXTRACT(DOW FROM date) AS day_of_week,
     CASE WHEN EXTRACT(DOW FROM date) IN (0,6) THEN TRUE ELSE FALSE END AS is_weekend,
-    {{ dbt_utils.current_timestamp() }} AS dbt_loaded_at
+    {{ dbt.current_timestamp() }} AS dbt_loaded_at
 FROM dates

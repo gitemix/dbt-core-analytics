@@ -26,7 +26,7 @@ final AS (
         s.phone_number,
         s.account_balance,
         -- Audit column
-        {{ dbt_utils.current_timestamp() }} AS dbt_loaded_at
+        {{ dbt.current_timestamp() }} AS dbt_loaded_at
     FROM suppliers s
     LEFT JOIN nations n 
         ON s.nation_key = n.nation_key

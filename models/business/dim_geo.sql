@@ -16,5 +16,5 @@ SELECT
     geography_key,
     nation_name,
     region_name,
-    {{ dbt_utils.current_timestamp() }} AS dbt_loaded_at
+    {{ dbt.current_timestamp() }} AS dbt_loaded_at
 FROM geo_base
