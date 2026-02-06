@@ -20,10 +20,8 @@ final AS (
         {{ dbt_utils.generate_surrogate_key(['supplier_key']) }} AS dim_supplier_key,
         s.supplier_key,
         s.supplier_name,
-        s.address,
         n.nation_name,
         r.region_name,
-        s.phone_number,
         s.account_balance,
         -- Audit column
         {{ dbt.current_timestamp() }} AS dbt_loaded_at
