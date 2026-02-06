@@ -10,7 +10,7 @@ WITH dates AS (
     UNION
 
     SELECT DISTINCT
-        li.shipdate AS date
+        li.l_shipdate AS date
     FROM {{ ref('int_enriched_lineitem') }} li
 )
 

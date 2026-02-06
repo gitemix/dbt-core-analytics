@@ -6,12 +6,11 @@ WITH lineitems AS (
     SELECT
         li.lineitem_key,
         li.order_key,
-        li.customer_key,
         li.part_key,
         li.supplier_key,
         li.shipdate,
         li.quantity,
-        li.extendedprice AS gross_amount,
+        li.gross_amount,
         li.net_amount
     FROM {{ ref('int_enriched_lineitem') }} li
 ),
@@ -21,7 +20,7 @@ orders AS (
         o.order_key,
         o.order_date,
         o.ship_priority,
-        o.customer_key AS order_customer_key
+        o.customer_key 
     FROM {{ ref('int_enriched_orders') }} o
 ),
 
@@ -29,7 +28,6 @@ fact_base AS (
     SELECT
         li.lineitem_key,
         li.order_key,
-        li.customer_key,
         li.part_key,
         li.supplier_key,
         li.shipdate,
@@ -37,6 +35,7 @@ fact_base AS (
         li.gross_amount,
         li.net_amount,
         o.order_date,
+        o.customer_key,
         o.ship_priority
     FROM lineitems li
     LEFT JOIN orders o
