@@ -8,7 +8,7 @@ WITH lineitems AS (
         li.order_key,
         li.part_key,
         li.supplier_key,
-        li.shipdate,
+        li.l_shipdate,
         li.quantity,
         li.gross_amount,
         li.net_amount
@@ -30,7 +30,7 @@ fact_base AS (
         li.order_key,
         li.part_key,
         li.supplier_key,
-        li.shipdate,
+        li.l_shipdate,
         li.quantity,
         li.gross_amount,
         li.net_amount,
