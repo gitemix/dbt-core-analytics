@@ -23,6 +23,7 @@ final AS (
         n.nation_name,
         r.region_name,
         s.account_balance,
+        {{ std_currency() }},
         -- Audit column
         {{ dbt.current_timestamp() }} AS dbt_loaded_at
     FROM suppliers s
