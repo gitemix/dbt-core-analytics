@@ -5,6 +5,6 @@ SELECT
     part_name   AS product_name,
     brand,
     type,
-    size
+    size,
     {{ dbt.current_timestamp() }} AS dbt_loaded_at
 FROM {{ ref('stg_tpch_part') }}
