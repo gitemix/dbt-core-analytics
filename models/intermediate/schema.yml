@@ -1,0 +1,19 @@
+models:
+   - name: int_enriched_lineitem  
+     columns:
+       - name: quantity
+         description: "Line item Quantity"
+         tests:
+           - is_positive 
+       - name: gross_amount 
+         tests: 
+           - is_positive    
+       - name: net_amount 
+         tests: 
+           - is_positive 
+
+   - name: int_enriched_orders
+     columns:
+       - name: total_price
+         tests:
+           - is_positive
