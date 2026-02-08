@@ -30,7 +30,8 @@ final AS (
         ON s.nation_key = n.nation_key
     LEFT JOIN regions r 
         ON n.region_key = r.region_key
-),
+)
 
- {{ dbt.current_timestamp() }} AS dbt_loaded_at
-SELECT * FROM final
+SELECT *,
+{{ dbt.current_timestamp() }} AS dbt_loaded_at
+FROM final
