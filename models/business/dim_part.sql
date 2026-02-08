@@ -6,4 +6,5 @@ SELECT
     brand,
     type,
     size
+    {{ dbt.current_timestamp() }} AS dbt_loaded_at
 FROM {{ ref('stg_tpch_part') }}
