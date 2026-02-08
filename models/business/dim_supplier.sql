@@ -32,6 +32,4 @@ final AS (
         ON n.region_key = r.region_key
 )
 
-SELECT *,
-{{ dbt.current_timestamp() }} AS dbt_loaded_at
-FROM final
+SELECT * FROM final
