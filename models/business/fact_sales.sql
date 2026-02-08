@@ -11,7 +11,9 @@ WITH lineitems AS (
         li.l_shipdate,
         li.quantity,
         li.gross_amount,
-        li.net_amount
+        li.net_amount,
+        li.supply_cost,
+        li.l_tax
     FROM {{ ref('int_enriched_lineitem') }} li
 ),
 
@@ -33,6 +35,8 @@ fact_base AS (
         li.quantity,
         li.gross_amount,
         li.net_amount,
+        li.supply_cost,
+        li.l_tax,
         o.order_date,
         o.customer_key
     FROM lineitems li
@@ -61,6 +65,9 @@ SELECT
     fb.quantity,
     fb.gross_amount,
     fb.net_amount,
+    (fb.gross_amount*fb.l_tax) AS tax_amount,
+    (fb.quantity*fb.supply_cost) AS total_cost,
+    (fb.net_amount - (fb.quantity*fb.supply_cost)) AS net_profit,
     {{ std_currency() }},
     
     -- Audit
