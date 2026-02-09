@@ -4,4 +4,4 @@ SELECT
     order_key,
     true_net_profit
 FROM {{ ref('fact_sales') }}
-WHERE true_net_profit < -1000
+WHERE true_net_profit < -10000
