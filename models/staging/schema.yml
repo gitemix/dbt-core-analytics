@@ -2,7 +2,7 @@ models:
    - name: stg_tpch_lineitem
      description: "Lineitem table in staging layer"   
      columns:
-       - name: l_quantity
+       - name: quantity
          description: "Line item Quantity"
          tests:
            - is_positive 
@@ -27,17 +27,17 @@ models:
    - name: stg_tpch_part       
      description: "Part table in staging layer"
      columns:
-       - name: p_retailprice
+       - name: retail_price
          description: "Retail price by part type"       
          tests:
            - is_positive
 
-       - name: p_size
+       - name: size
          description: "Part/order size "
          tests: 
            - is_positive
 
-       - name: p_partkey
+       - name: part_key
          description: "Primary key"
          tests: 
            - unique
@@ -46,16 +46,16 @@ models:
    - name: stg_tpch_partsupp
      description: "Part Supplier table in staging layer"
      columns:
-       - name: ps_availqty
+       - name: available_quantity
          description: "Available inventory"
          tests:
            - is_positive 
 
-       - name: ps_supplycost
+       - name: supply_cost
          description: "Supply Cost table in staging layer"
          tests:
             - is_positive
-       - name: ps_suppkey
+       - name: supplier_key
          description: "Primary Key"       
          tests:
             - not_null
@@ -64,11 +64,11 @@ models:
    - name: stg_tpch_orders
      description: "Orders table in staging layer"
      columns:
-      - name: o_totalprice
+      - name: total_price
         description: "Total Price per order"
         tests:
               - is_positive 
-      - name: o_orderkey
+      - name: order_key
         description: "Primary Key"
         tests:
             - unique
@@ -78,7 +78,7 @@ models:
    - name: stg_tpch_customer
      description: "Customer table in staging layer"
      columns:
-       - name: c_custkey
+       - name: customer_key
          description: "Primary Key"
          tests:
             - unique
