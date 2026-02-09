@@ -1,0 +1,16 @@
+models:
+   - name: fact_sales
+     columns:
+       - name: quantity
+         tests:
+           - is_positive
+       - name: gross_amount
+         tests:
+           - is_positive
+       - name: lineitem_key
+         tests:
+           - unique
+           - not_null 
+       - name: true_net_profit
+         tests:
+           - is_positive        
