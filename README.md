@@ -1,10 +1,25 @@
-Welcome to your new dbt project!
 
-### Using the starter project
+.
+├── macros/
+│   ├── gen_surkey.sql        # Surrogate key generator
+│   ├── test_is_positive.sql  # Custom generic data quality test (ensures amounts are positive)
+│   └── format_quantity.sql   # Type casting helper (quantities are turned into whole numbers)
+├── models/
+│   ├── staging/              # Raw data cleaning
+│   ├── intermediate/         # Business logic & Joins
+│   └── business/             # Fact & Dimension tables (The Gold Layer)
+├── tests/
+│   └── positive_net_profit.sql     # Singular business logic test
+│   └── date_integrity.sql     # Singular business logic test
+└── dbt_project.yml           # Project configuration & dispatch
 
-Try running the following commands:
-- dbt run
-- dbt test
+
+
+
+
+
+
+
 
 
 ### Resources:
