@@ -2,6 +2,6 @@
 -- (Assuming your business logic says you never sell at a loss)
 SELECT
     order_key,
-    net_profit
+    true_net_profit
 FROM {{ ref('fact_sales') }}
-WHERE net_profit < 0
+WHERE true_net_profit < -1000
