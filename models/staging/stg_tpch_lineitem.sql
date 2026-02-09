@@ -21,5 +21,5 @@ SELECT
 FROM {{ source('tpch_source', 'lineitem') }}
 
 {% if is_incremental() %}
-WHERE l_shipdate > (SELECT MAX(l_shipdate) FROM {{ this }})
+WHERE l_shipdate >= (SELECT MAX(l_shipdate) FROM {{ this }})
 {% endif %}
