@@ -64,10 +64,12 @@ SELECT
     -- Metrics
     fb.quantity,
     fb.gross_amount,
-    fb.net_amount,
+    fb.net_amount AS discounted_revenue,
     (fb.gross_amount*fb.l_tax) AS tax_amount,
     (fb.quantity*fb.supply_cost) AS total_cost,
     (fb.net_amount - (fb.quantity*fb.supply_cost)) AS net_profit,
+    (fb.net_amount -(fb.quantity*fb.supply_cost) - (fb.net_amount*fb.l_tax)) AS true_net_profit,
+    ((fb.net_amount -(fb.quantity*fb.supply_cost) - (fb.net_amount*fb.l_tax)) / NULLIF(fb.quantity,0)) AS net_profit_per_unit
     {{ std_currency() }},
     
     -- Audit
